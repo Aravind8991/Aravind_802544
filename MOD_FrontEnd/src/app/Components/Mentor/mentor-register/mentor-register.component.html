@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Icon -->
+  <link rel="stylesheet" href="/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+  <!-- Main css -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body>
+
+  <div class="main">
+
+    <section class="signup">
+      <!-- <img src="images/signup-bg.jpg" alt=""> -->
+      <div class="container">
+        <div class="signup-content">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="signup-form" class="signup-form">
+            <h2 class="form-title">Create account</h2>
+            <div class="form-group">
+              <input type="text" class="form-input" name="mentornName" [(ngModel)]="item.mentorName" formControlName="mentorName"
+                [ngClass]="{ 'is-invalid': submitted && for.mentorName.errors }" placeholder="Your Name" />
+              <div *ngIf="submitted && for.mentorName.errors" class="invalid-feedback"
+                style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.mentorName.errors.required">UserName is required</div>
+                <div *ngIf="for.mentorName.errors.pattern" style="color:  rgb(230, 68, 68);">UserName must have only characters </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-input" name="email"[(ngModel)]="item.email" id="email" placeholder="Your Email"
+                formControlName="email" [ngClass]="{ 'is-invalid': submitted && for.email.errors }" />
+              <div *ngIf="submitted && for.email.errors" class="invalid-feedback" style="color:  rgb(230, 68, 68);">
+                <div *ngIf="for.email.errors.required" style="color:  rgb(230, 68, 68);">Email is required</div>
+                <div *ngIf="for.email.errors.email" style="color:  rgb(230, 68, 68);">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-input" name="mobileNo"[(ngModel)]="item.mobileNo" id="name" placeholder="Your MobileNo"
+                formControlName="mobileNo" [ngClass]="{ 'is-invalid': submitted && for.mobileNo.errors }" />
+              <div *ngIf="submitted && for.mobileNo.errors" class="invalid-feedback"
+                style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.mobileNo.errors.required" style="color:  rgb(230, 68, 68);">Mobileno is required</div>
+                <div *ngIf="for.mobileNo.errors.pattern">Mobileno should have Numeric values</div>
+                <div *ngIf="for.mobileNo.errors.minlength"style="color:  rgb(230, 68, 68);">Mobileno must be at least 10 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-input" name="password"[(ngModel)]="item.password" id="password" formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && for.password.errors }" placeholder="Password" />
+              <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+              <div *ngIf="submitted && for.password.errors" class="invalid-feedback" style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.password.errors.required">Password is required</div>
+                <div *ngIf="for.password.errors.minlength" style="color:  rgb(230, 68, 68);">Password must be at least 8 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-input" name="name"[(ngModel)]="item.experience" id="name" placeholder="Experience"
+                formControlName="experience" [ngClass]="{ 'is-invalid': submitted && for.experience.errors }" />
+              <div *ngIf="submitted && for.experience.errors" class="invalid-feedback"
+                style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.experience.errors.required">Minimum 2 year is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" list="skill" class="form-input"[(ngModel)]="item.skill" name="skill" id="name" placeholder="Skill"
+                formControlName="skill" [ngClass]="{ 'is-invalid': submitted && for.skill.errors }" />
+              <datalist id="skill">
+                <option *ngFor="let item1 of list1" value={{item1.skillName}}></option>
+            
+              </datalist>
+              <div *ngIf="submitted && for.skill.errors" class="invalid-feedback" style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.skill.errors.required">Skill is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" list="slot" name="timeSlot" [(ngModel)]="item.timeSlot"class="form-input" id="name" placeholder="TimeSlot"
+                formControlName="timeSlot" [ngClass]="{ 'is-invalid': submitted && for.timeSlot.errors }" />
+              <datalist id="slot">
+                <option value="9to6"></option>
+                <option value="11to8"></option>
+                <option value="10to6"></option>
+                <option value="12to8"></option>
+              </datalist>
+              <div *ngIf="submitted && for.timeSlot.errors" class="invalid-feedback" style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.timeSlot.errors.required">Time Slot is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-input" [(ngModel)]="item.availability"name="availability" formControlName="availability" id="name"
+                placeholder="Availability" [ngClass]="{ 'is-invalid': submitted && for.availability.errors }" />
+              <div *ngIf="submitted && for.availability.errors" class="invalid-feedback"
+                style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.availability.errors.required">Availability is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button  name="submit" id="submit" class="form-submit">Sign up
+
+              </button>
+            </div>
+          </form>
+          <p class="loginhere">
+            Have already an account ? <a href="Login" class="loginhere-link">Login here</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+
+</html>

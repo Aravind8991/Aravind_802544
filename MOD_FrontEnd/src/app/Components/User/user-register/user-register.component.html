@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Icon -->
+  <link rel="stylesheet" href="/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+  <!-- Main css -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body>
+
+  <div class="main">
+
+    <section class="signup">
+
+      <div class="container">
+        <div class="signup-content">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"id="signup-form" class="signup-form">
+            <h2 class="form-title">Create Account</h2>
+            <div class="form-group">
+              <input type="text" class="form-input" name="userName" [(ngModel)]="item.userName" id="name"
+                placeholder="Your Name" formControlName="userName"
+                [ngClass]="{ 'is-invalid': submitted && for.userName.errors }" />
+              <div *ngIf="submitted && for.userName.errors" class="invalid-feedback" style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.userName.errors.required" style="color:  rgb(230, 68, 68);">UserName is required</div>
+                <div *ngIf="for.userName.errors.pattern" style="color:  rgb(230, 68, 68);">UserName must have only characters </div>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-input" name="email" [(ngModel)]="item.email" id="email"
+                placeholder="Your Email" formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && for.email.errors }" />
+              <div *ngIf="submitted && for.email.errors" class="invalid-feedback" style="color:  rgb(230, 68, 68);">
+                <div *ngIf="for.email.errors.required" style="color:  rgb(230, 68, 68);">Email is required</div>
+                <div *ngIf="for.email.errors.email" style="color:  rgb(230, 68, 68);">Email must be a valid email address</div>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-input" required name="mobilNo" [(ngModel)]="item.mobilNo" id="name"
+                placeholder="Your MobileNo" formControlName="mobilNo"/>
+                <!-- [ngClass]="{ 'is-invalid': submitted && for.mobilNo.errors }"  -->
+              <!-- <div *ngIf="for.mobilNo.errors.required">Mobileno is required</div>
+              <div *ngIf="for.mobilNo.errors.pattern" style="color:  rgb(230, 68, 68);">Mobileno should have Numeric values</div>
+              <div *ngIf="for.mobilNo.errors.minlength" style="color:  rgb(230, 68, 68);">Mobileno must be at least 10 characters</div> -->
+
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-input" name="password" [(ngModel)]="item.password" id="password"
+                formControlName="password" placeholder="Password"
+                [ngClass]="{ 'is-invalid': submitted && for.password.errors }" />
+              <div *ngIf="submitted && for.password.errors" class="invalid-feedback" style="color: rgb(230, 68, 68);">
+                <div *ngIf="for.password.errors.required" style="color:  rgb(230, 68, 68);">Password is required</div>
+                <div *ngIf="for.password.errors.minlength" style="color:  rgb(230, 68, 68);">Password must be at least 8 characters</div>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <button  name="submit" id="submit" class="form-submit">Signup</button>
+            </div>
+          </form>
+          <p class="loginhere">
+            Have already an account ? <a href="Login" class="loginhere-link">Login here</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JS -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!-- The sidebar -->
+<div class="sidebar">
+  <a (click)="GetCTs()">OngoingCourses</a>
+  <a (click)="GetOTs()">CompletedCourses</a>
+  <a href="#home">Logout</a>
+</div>
+
+<!-- Page content -->
+<div class="content">
+  .. <table id="tab" class="table table-striped table-bordered " width="50">
+    <tr>
+      <th>TrainingId</th>
+      <th>MentorId</th>
+      <th>SkillId</th>
+      <th>UserId</th>
+      <th>StartDate</th>
+      <th>EndDate</th>
+      <th>TimeSlot</th>
+      <th>Status</th>
+      <th>Progress</th>
+      <th>Rating</th>
+
+    </tr>
+    <tbody>
+      <tr *ngFor="let item of list">
+        <td>{{item.trainingId}}</td>
+        <td>{{item.mentorId}}</td>
+        <td>{{item.UserId}}</td>
+        <td>{{item.skillId}}</td>
+        <td>{{item.startDate}}</td>
+        <td>{{item.endDate}}</td>
+        <td>{{item.timeslot}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.progress}}</td>
+        <td>{{item.rating}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+</div>

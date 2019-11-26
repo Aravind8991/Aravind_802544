@@ -1,0 +1,50 @@
+<div class="intro">
+    <nav class="navbar  navbar-default navbar-expand-md">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img src="assets/img/logo.jfif"  class="img-rounded" width="35" height="35" alt="">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a routerLink="Home">Home</a></li>
+          <li><a routerLink="About">About</a></li>
+          <li><a routerLink="courses">Courses</a></li>&nbsp;&nbsp;
+        </ul>
+        <div class="collapse navbar-collapse justify-content-end" >
+        <ul class="nav navbar-nav  navbar-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"   href="#" id="navbarDropdown" class="glyphicon glyphicon-user"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Signup
+              </a>
+                <ul class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="Signup/User">User</a></li>
+                  <li><a class="dropdown-item" routerLink="Signup/Mentor">Mentor</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" *ngIf="!isLogin()" routerLink="Login" id="navbarDropdown" class="glyphicon glyphicon-log-in"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </a>
+                <a class="nav-link dropdown-toggle" *ngIf="isLogin()" (click)="logoutUser()" routerLink="Login" id="navbarDropdown" class="glyphicon glyphicon-log-in"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    LogOut
+                  </a>
+                </li>
+              
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search ">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+      </div>
+      </div>
+    </nav>
+
+    </div>
+<router-outlet></router-outlet>

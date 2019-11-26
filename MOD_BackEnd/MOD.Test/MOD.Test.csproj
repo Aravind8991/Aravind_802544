@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MOD_AuthenticateService\MOD_AuthenticateService.csproj" />
+    <ProjectReference Include="..\MOD_PaymentService\MOD_PaymentService.csproj" />
+    <ProjectReference Include="..\MOD_TechnologyService\MOD_TechnologyService.csproj" />
+    <ProjectReference Include="..\MOD_TrainingService\MOD_TrainingService.csproj" />
+    <ProjectReference Include="..\MOD_UserService\MOD_UserService.csproj" />
+  </ItemGroup>
+
+</Project>
